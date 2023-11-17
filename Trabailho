@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Formulário de Cadastro</title>
+</head>
+<body>
+  <form id="cadastroForm">
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" name="nome" required><br><br>
+    
+    <label for="genero">Gênero:</label>
+    <select id="genero" name="genero" required>
+      <option value="masculino">Masculino</option>
+      <option value="feminino">Feminino</option>
+      <option value="outro">Outro</option>
+    </select><br><br>
+    
+    <label for="idade">Idade:</label>
+    <input type="number" id="idade" name="idade" required><br><br>
+    
+    <label for="uf">UF (por sigla):</label>
+    <input list="estados" id="uf" name="uf" required>
+    <datalist id="estados">
+      <option value="AC">
+      <option value="AL">
+      <option value="AP">
+      <option value="AM">
+      <option value="BA">
+      <option value="CE">
+      <option value="DF">
+      <option value="ES">
+      <option value="GO">
+      <option value="MA">
+      <option value="MT">
+      <option value="MS">
+      <option value="MG">
+      <option value="PA">
+      <option value="PB">
+      <option value="PR">
+      <option value="PE">
+      <option value="PI">
+      <option value="RJ">
+      <option value="RN">
+      <option value="RS">
+      <option value="RO">
+      <option value="RR">
+      <option value="SC">
+      <option value="SP">
+      <option value="SE">
+      <option value="TO">
+    </datalist><br><br>
+    
+    <label for="regiao">Região:</label>
+    <input type="text" id="regiao" name="regiao" readonly><br><br>
+    
+    <label for="cidade">Cidade:</label>
+    <input type="text" id="cidade" name="cidade" required><br><br>
+    
+    <label for="telefone">Telefone fixo com DDD:</label>
+    <input type="tel" id="telefone" name="telefone" required><br><br>
+    
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required><br><br>
+    
+    <button type="button" onclick="salvarCadastro()">Salvar</button>
+    <button type="button" onclick="excluirCadastros()">Excluir Cadastros</button>
+  </form>
+
+  <script>
+    // Função para salvar cadastro (simulação, não armazena de fato)
+    function salvarCadastro() {
+      const formData = new FormData(document.getElementById('cadastroForm'));
+      const cadastro = {};
+      for (const [key, value] of formData.entries()) {
+        cadastro[key] = value;
+      }
+      console.log('Cadastro:', cadastro);
+      // Aqui você pode manipular o objeto "cadastro" como desejar, por exemplo, enviá-lo para uma API, etc.
+    }
+
+    // Função para excluir cadastros existentes (simulação)
+    function excluirCadastros() {
+      // Lógica para excluir os cadastros salvos (simulação)
+      console.log('Cadastros excluídos');
+    }
+
+    // Integração com a API do IBGE para obter informações de estado e cidade (exemplo)
+    // Você precisará de uma chave de acesso válida para a API do IBGE
+    // e escrever lógica para realizar as chamadas à API e preencher os campos "UF" e "Região" automaticamente.
+  </script>
+</body>
+</html>
